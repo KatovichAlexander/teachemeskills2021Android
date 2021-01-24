@@ -1,3 +1,6 @@
+import java.io.Console;
+import java.util.Scanner;
+
 public class Homework2 {
 
     public static void main(String[] args) {
@@ -5,16 +8,16 @@ public class Homework2 {
 //        System.out.println(sum(Integer.MAX_VALUE, Integer.MAX_VALUE));
         System.out.println(max(50, 49));
         System.out.println(average(new int[]{1, 2, 3, 4, 5}));
-//        System.out.println(max(new int[]{1, 2, 3, 4, 5, 100, 99}));
-//        System.out.println(calculateHypotenuse());
+        System.out.println(max(new int[]{1, 2, 3, 4, 5, 100, 99}));
+        System.out.println(calculateHypotenuse());
     }
 
     /**
      * 1. Method should return sum of "a" and "b"
      * 2. (optional) if sum of a and b is more then int can store -- return -1;
      **/
-    public static int sum(int a, int b) {
-
+    public static int sum(int a, int b)
+    {
         return a + b;
     }
 
@@ -32,7 +35,8 @@ public class Homework2 {
      * <p>
      * Method should return 10
      */
-    public static int max(int a, int b) {
+    public static int max(int a, int b)
+    {
 //        int answer;
 //       if (a > b)
 //        {
@@ -46,7 +50,7 @@ public class Homework2 {
 //        answer = Math.max(a,b);
 //        return answer;
 
-        return Math.max(a,b);
+        return Math.max(a, b);
     }
 
     /**
@@ -56,20 +60,31 @@ public class Homework2 {
      * array = {1,2,3,4,5}
      * Method should return 3
      */
-    public static double average(int[] array) {
+    public static double average(int[] array)
+    {
         double sum = 0;
-        for (int i = 0; i < array.length; i++) {
+        for (int i = 0; i < array.length; i++)
+        {
             sum = sum + array[i];
         }
-        return (sum/array.length);
+        return (sum / array.length);
     }
 
     /**
      * (optional)
      * Method should return max element of array. For example if array = {1,2,10,3} then method should return 10;
      **/
-    public static int max(int[] array) {
-        return 0;
+    public static int max(int[] array)
+    {
+        int max = 0;
+        for (int i = 0; i < array.length; i++)
+        {
+            if (max < array[i])
+            {
+                max = array[i];
+            }
+        }
+        return max;
     }
 
     /**
@@ -88,7 +103,16 @@ public class Homework2 {
      * 16
      * Method should return 20
      */
-    public static double calculateHypotenuse() {
-        return 0.;
+    public static double calculateHypotenuse()
+    {
+        Scanner in1 = new Scanner(System.in);
+        System.out.print("Input a: ");
+        double a = in1.nextInt();
+
+        Scanner in2 = new Scanner(System.in);
+        System.out.print("Input b: ");
+        double b = in2.nextInt();
+
+        return Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
     }
 }
