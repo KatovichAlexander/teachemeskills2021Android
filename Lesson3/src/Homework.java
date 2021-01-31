@@ -4,10 +4,10 @@ import java.util.Scanner;
 public class Homework {
     public static void main(String[] args) {
         System.out.println(operation(1));
-//        System.out.println(operation(0));
+        System.out.println(operation(0));
         foobar(6);
-//        foobar(10);
-//        foobar(15);
+        foobar(10);
+        foobar(15);
         printMatrix();
         printPrimeNumbers();
     }
@@ -19,18 +19,30 @@ public class Homework {
      * - if number is equal to zero - replace it with 10
      * return number value after operation
      */
+
+    /** Version from Gleb     */
+//    public static int operation(int number) {
+//        if (number > 0) {
+//            number++;
+//        } else if (number < 0) {
+//            number -= 2;
+//        } else {
+//            number = 10;
+//        }
+//        return number;
+//    }
+
     public static int operation(int number) {
-        int a = 0;
-        if (a > 0) {
-            a++;
+        if (number > 0) {
+            number++;
         }
-        if (a < 0) {
-            a = a - 2;
+        if (number < 0) {
+            number -= 2;
         }
-        if (a == 0) {
-            a = 10;
+        if (number == 0) {
+            number = 10;
         }
-        return a;
+        return number;
     }
 
     /**
@@ -40,26 +52,25 @@ public class Homework {
      * - if remainder of the division number by both 3 and 5 is zero 0  and - print "foobar" (example of number - 15)
      */
 
+    /** Version from Gleb     */
+//    public static void foobar(int number) {
+//        if (number % 3 == 0) {
+//            System.out.print("foo");
+//        }
+//        if (number % 5 == 0) {
+//            System.out.print("bar");
+//        }
+//        System.out.println();
+//    }
+
     public static void foobar(int number) {
-        int a = 15;
-        int b;
-        int d;
-
-        b = a % 3;
-        d = a % 5;
-
-        if (b == 0 & d != 0) {
+        if (number % 3 == 0 & number % 5 != 0) {
             System.out.println("foo");
-//            if (d == 0) {
-//                System.out.println("bar");
-//            }
         }
-
-        if (d == 0 & b != 0) {
+        if (number % 5 == 0 & number % 3 != 0) {
             System.out.println("bar");
         }
-
-        if (b == 0 & d == 0) {
+        if (number % 3 == 0 & number % 5 ==0) {
             System.out.println("foobar");
         }
     }
@@ -87,64 +98,97 @@ public class Homework {
      * Note that 21 % 3 == 0 and 21 % 7 = 0, but output is not +-, but +
      */
 
+    /** Version from Gleb     */
+//    public static void printMatrix() {
+//        Scanner scanner = new Scanner(System.in);
+//        Random random = new Random();
+//
+//        int height = scanner.nextInt();
+//        int width = scanner.nextInt();
+//        int[][] array = new int[height][width];
+//        for (int i = 0; i < array.length; i++) {
+//            for (int j = 0; j < array[i].length; j++) {
+//                array[i][j] = random.nextInt(100);
+//                System.out.print(array[i][j] + " ");
+//            }
+//            System.out.println();
+//        }
+
+
+//        for (int[] row : array) {
+//            for (int element : row) {
+//                if (element % 3 == 0) {
+//                    System.out.print("+");
+//                } else if (element % 7 == 0) {
+//                    System.out.print("-");
+//                } else {
+//                    System.out.print("*");
+//                }
+//            }
+//            System.out.println();
+//        }
+//    }
+
     public static void printMatrix() {
 
-//        - Read two ints from console
-//        int height = 2;
+        /** - Read two ints from console                   */
+
         Scanner scanner = new Scanner(System.in);
         System.out.print("Input height: ");
         int height = scanner.nextInt();
 
-//        int width = 2;
         Scanner scanner1 = new Scanner(System.in);
         System.out.print("Input width: ");
         int width = scanner1.nextInt();
 
-//        System.out.println( a );
-//        System.out.println( b );
+        /** - Create a two-dimensional int array (use ints that you read from console height and width)         */
 
-//        - Create a two-dimensional int array (use ints that you read from console height and width)
-//        int[][] twoDArray = new int[i][j];
         int[][] twoDArray = new int[height][width];
 
-//        - Fill array with random values (under 100)
-        Random random = new Random();
-        for (int[] row : twoDArray) {
-            for (int i = 0; i < row.length; i++) {
-                row[i] = random.nextInt(100);
-            }
-        }
+        /** - Fill array with random values (under 100)         */
 
-//        - Print in console matrix with given size:
+        Random random = new Random();
+
         for (int i = 0; i < twoDArray.length; i++) {
             for (int j = 0; j < twoDArray[i].length; j++) {
+                twoDArray[i][j] = random.nextInt(100);
                 System.out.print(twoDArray[i][j] + " ");
             }
+            System.out.println();   /** - Print in console matrix with given size:         */
         }
+        /** - If remainder of the division array element by 3 is zero - print "+" sign instead of array element value */
 
-//        - If remainder of the division array element by 3 is zero - print "+" sign instead of array element value
-
-
-//        int[][] ArraySymbol = new int[height][width];
-//
-//        for (int i = 0; i < twoDArray.length; i++) {
-//            if (twoDArray[i]%3 == 0) {
-//                System.out.print(twoDArray[i] + " ");
-//            for (int j = 0; j < twoDArray[i].length; j++) {
-//                System.out.print(twoDArray[i][j] + " ");
-//            }
-//        }
-
-
+        for (int[] row : twoDArray) {
+            for (int element : row) {
+                if (element % 3 == 0) {
+                    System.out.print(" -");
+                } else {
+                    System.out.print(" *");
+                }
+            }
+            System.out.println();
+        }
     }
 
     /**
      * (optional)
      * Method should print all prime numbers < 1000
      */
+    /** Version from Gleb     */
     public static void printPrimeNumbers() {
-
+        for (int i = 2; i < 1000; i++) {
+            boolean isPrime = true;
+            for (int j = 2; j * j <= i; j++) {
+                if (i % j == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+            if (isPrime) {
+                System.out.print(i + ", ");
+            }
+        }
+        System.out.println("\b\b");
     }
-
 
 }
