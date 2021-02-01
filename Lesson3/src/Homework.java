@@ -20,7 +20,9 @@ public class Homework {
      * return number value after operation
      */
 
-    /** Version from Gleb     */
+    /**
+     * Version from Gleb
+     */
 //    public static int operation(int number) {
 //        if (number > 0) {
 //            number++;
@@ -31,7 +33,6 @@ public class Homework {
 //        }
 //        return number;
 //    }
-
     public static int operation(int number) {
         if (number > 0) {
             number++;
@@ -52,7 +53,9 @@ public class Homework {
      * - if remainder of the division number by both 3 and 5 is zero 0  and - print "foobar" (example of number - 15)
      */
 
-    /** Version from Gleb     */
+    /**
+     * Version from Gleb
+     */
 //    public static void foobar(int number) {
 //        if (number % 3 == 0) {
 //            System.out.print("foo");
@@ -62,7 +65,6 @@ public class Homework {
 //        }
 //        System.out.println();
 //    }
-
     public static void foobar(int number) {
         if (number % 3 == 0 & number % 5 != 0) {
             System.out.println("foo");
@@ -70,7 +72,7 @@ public class Homework {
         if (number % 5 == 0 & number % 3 != 0) {
             System.out.println("bar");
         }
-        if (number % 3 == 0 & number % 5 ==0) {
+        if (number % 3 == 0 & number % 5 == 0) {
             System.out.println("foobar");
         }
     }
@@ -98,7 +100,9 @@ public class Homework {
      * Note that 21 % 3 == 0 and 21 % 7 = 0, but output is not +-, but +
      */
 
-    /** Version from Gleb     */
+    /**
+     * Version from Gleb
+     */
 //    public static void printMatrix() {
 //        Scanner scanner = new Scanner(System.in);
 //        Random random = new Random();
@@ -128,7 +132,6 @@ public class Homework {
 //            System.out.println();
 //        }
 //    }
-
     public static void printMatrix() {
 
         /** - Read two ints from console                   */
@@ -137,9 +140,9 @@ public class Homework {
         System.out.print("Input height: ");
         int height = scanner.nextInt();
 
-        Scanner scanner1 = new Scanner(System.in);
+//        Scanner scanner1 = new Scanner(System.in);
         System.out.print("Input width: ");
-        int width = scanner1.nextInt();
+        int width = scanner.nextInt();
 
         /** - Create a two-dimensional int array (use ints that you read from console height and width)         */
 
@@ -156,14 +159,16 @@ public class Homework {
             }
             System.out.println();   /** - Print in console matrix with given size:         */
         }
-        /** - If remainder of the division array element by 3 is zero - print "+" sign instead of array element value */
 
         for (int[] row : twoDArray) {
             for (int element : row) {
                 if (element % 3 == 0) {
-                    System.out.print(" -");
+                    System.out.print(" +");   /** - If remainder of the division array element by 3 is zero - print "+" sign instead of array element value */
+
+                } else if (element % 7 == 0) {
+                    System.out.print(" -"); /** - If remainder of the division array element by 7 is zero - print "-" sign instead of array element value */
                 } else {
-                    System.out.print(" *");
+                    System.out.print(" *");   /** - Print "*" otherwise */
                 }
             }
             System.out.println();
@@ -174,7 +179,9 @@ public class Homework {
      * (optional)
      * Method should print all prime numbers < 1000
      */
-    /** Version from Gleb     */
+    /**
+     * Version from Gleb
+     */
     public static void printPrimeNumbers() {
         for (int i = 2; i < 1000; i++) {
             boolean isPrime = true;
